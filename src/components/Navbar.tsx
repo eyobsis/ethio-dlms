@@ -11,7 +11,7 @@ import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 export default function Navbar() {
   return (
     <header className="flex items-center justify-between h-16 px-4 bg-white shadow-lg dark:bg-gray-950 md:px-6">
-      <Link className="flex items-center gap-2" href="#">
+      <Link className="flex items-center gap-2" to="/">
         
         <span className="text-lg font-semibold tracking-tight">ETHIO-DLMS</span>
       </Link>
@@ -19,37 +19,37 @@ export default function Navbar() {
         <Link
           aria-current="page"
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="/"
+          to="/"
         >
           Home
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="/about"
+          to="/about"
         >
           About
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="/services"
+          to="/services"
         >
           Services
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="/contact"
+          to="/contact"
         >
           Contact
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="login"
+          to="login"
         >
           Login
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="/signup"
+          to="/signup"
         >
           SignUp
         </Link>
@@ -96,37 +96,37 @@ export default function Navbar() {
             <Link
               aria-current="page"
               className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              href="#"
+              to="#"
             >
               Home
             </Link>
             <Link
               className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              href="#"
+              to="#"
             >
               About
             </Link>
             <Link
               className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              href="#"
+              to="#"
             >
               Products
             </Link>
             <Link
               className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              href="#"
+              to="#"
             >
               Contact
             </Link>
             <Link
               className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              href="#"
+              to="#"
             >
               Login
             </Link>
             <Link
               className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              href="#"
+              to="#"
             >
               Sign Up
             </Link>

@@ -7,7 +7,7 @@ import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card }
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import {Link} from 'react-router-dom';
 
 export default function SelectOptions() {
   return (
