@@ -1,65 +1,117 @@
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/rrrHwUTKFGH
+ * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
+ */
+import {
+    CardTitle,
+    CardHeader,
+    CardContent,
+    CardFooter,
+    Card,
+} from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
-import { Link } from'react-router-dom';
-
-const Services = () => {
-  return (
-    <section id="featured-services" className="featured-services">
-      <div className="container" data-aos="fade-up">
-        <div className="row">
-          <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <Link to="/user-register">
-              <div className="icon-box" data-aos="fade-up" data-aos-delay="100">
-                <div className="icon">
-                  <i className="bx bxs-user-plus"></i>
+export default function Services() {
+    return (
+        <main className="container mx-auto my-12 grid gap-8 px-4 md:grid-cols-2 lg:grid-cols-4">
+            <Card className="flex flex-col justify-between rounded-lg bg-gray-950 shadow-md dark:bg-gray-950 dark:text-gray-50">
+                <div>
+                    <CardHeader>
+                        <CardTitle className="text-white">
+                            Driver's License Renewal
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-gray-400">
+                            Renew your driver's license quickly and
+                            conveniently. Our online process makes it easy to
+                            update your information and get back on the road.
+                        </p>
+                    </CardContent>
                 </div>
-                <h4 className="title">Create New Account</h4>
-                <p className="description">
-                  Not yet Registered? Create a new account to register for a new license or Renew
-                  your license
-                </p>
-              </div>
-            </Link>
-          </div>
-
-          <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <Link to="/user-login">
-              <div className="icon-box" data-aos="fade-up" data-aos-delay="200">
-                <div className="icon">
-                  <i className="bx bxs-user-check"></i>
+                <CardFooter>
+                    <Link
+                        className="inline-flex w-full items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-gray-950"
+                        href="#"
+                    >
+                        Renew License
+                    </Link>
+                </CardFooter>
+            </Card>
+            <Card className="flex flex-col justify-between rounded-lg bg-gray-950 shadow-md dark:bg-gray-950 dark:text-gray-50">
+                <div>
+                    <CardHeader>
+                        <CardTitle className="text-white">
+                            New Student Registration
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-gray-400">
+                            Get started on your driving journey by registering
+                            as a new student. Our team will guide you through
+                            the process and help you get your learner's permit.
+                        </p>
+                    </CardContent>
                 </div>
-                <h4 className="title">User Log In</h4>
-                <p className="description">Already has an account? Click Log in to log into your account</p>
-              </div>
-            </Link>
-          </div>
-
-          <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <Link to="/admin-login">
-              <div className="icon-box" data-aos="fade-up" data-aos-delay="300">
-                <div className="icon">
-                  <i className="bx bxs-user-detail"></i>
+                <CardFooter>
+                    <Link
+                        className="inline-flex w-full items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-gray-950"
+                        href="#"
+                    >
+                        Register as Student
+                    </Link>
+                </CardFooter>
+            </Card>
+            <Card className="flex flex-col justify-between rounded-lg bg-gray-950 shadow-md dark:bg-gray-950 dark:text-gray-50">
+                <div>
+                    <CardHeader>
+                        <CardTitle className="text-white">
+                            Vehicle Registration
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-gray-400">
+                            Register your vehicle with the state and get your
+                            official registration documents. Our streamlined
+                            process makes it easy to get your car on the road.
+                        </p>
+                    </CardContent>
                 </div>
-                <h4 className="title">Admin Log In</h4>
-                <p className="description">Log in as an administrator</p>
-              </div>
-            </Link>
-          </div>
-
-          <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <Link to="/learners-login">
-              <div className="icon-box" data-aos="fade-up" data-aos-delay="400">
-                <div className="icon">
-                  <i className="bx bxs-car"></i>
+                <CardFooter>
+                    <Link
+                        className="inline-flex w-full items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-gray-950"
+                        href="#"
+                    >
+                        Register Vehicle
+                    </Link>
+                </CardFooter>
+            </Card>
+            <Card className="flex flex-col justify-between rounded-lg bg-gray-950 shadow-md dark:bg-gray-950 dark:text-gray-50">
+                <div>
+                    <CardHeader>
+                        <CardTitle className="text-white">
+                            Driving Lessons
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-gray-400">
+                            Improve your driving skills with our expert
+                            instructors. Whether you're a beginner or looking to
+                            sharpen your skills, we offer comprehensive driving
+                            lessons to meet your needs.
+                        </p>
+                    </CardContent>
                 </div>
-                <h4 className="title">Learners Log In</h4>
-                <p className="description">Log in as a driving school (learners)</p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Services;
+                <CardFooter>
+                    <Link
+                        className="inline-flex w-full items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-gray-950"
+                        href="#"
+                    >
+                        Book Lessons
+                    </Link>
+                </CardFooter>
+            </Card>
+        </main>
+    );
+}
