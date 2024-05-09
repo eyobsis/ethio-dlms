@@ -45,11 +45,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
+        <Route path="/service" element={<Services />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/Hero" element={<Hero />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup />}/>
+        <Route path="/services" element={<SelectOptions />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
