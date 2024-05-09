@@ -10,6 +10,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Signup from './components/Signup';
+import SelectOptions from './components/SelectOptions'
 
 function App() {
 
@@ -47,6 +49,7 @@ function App() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/Hero" element={<Hero />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </BrowserRouter>

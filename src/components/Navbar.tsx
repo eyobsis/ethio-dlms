@@ -19,39 +19,39 @@ export default function Navbar() {
         <Link
           aria-current="page"
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="#"
+          href="/"
         >
           Home
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="#"
+          href="/about"
         >
           About
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="#"
+          href="/services"
         >
-          Products
+          Services
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="#"
+          href="/contact"
         >
           Contact
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="#"
+          href="login"
         >
           Login
         </Link>
         <Link
           className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          href="#"
+          href="/signup"
         >
-          Sign Up
+          SignUp
         </Link>
         <div className="relative">
           <DropdownMenu>
