@@ -10,9 +10,9 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Signup from "./components/Signup";
-import Login from "./components/login";
+import Login from './components/Login';
 import SelectOptions from "./components/SelectOptions";
-
+import Dashboard from "./components/Dashboard";
 function App() {
     /* const [totalUsers, setTotalUsers] = useState(0);
   const [totalAdmin, setTotalAdmin] = useState(0);
@@ -50,6 +50,9 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/services" element={<SelectOptions />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+
+                
             </Routes>
             <Footer />
         </BrowserRouter>

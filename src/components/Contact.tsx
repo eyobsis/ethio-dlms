@@ -13,16 +13,37 @@ import { Link } from "react-router-dom";
 export default function Contact() {
     return (
         <div className="flex min-h-screen flex-col bg-[#1e293b] text-white">
-            <main className="container mx-auto flex flex-1 flex-col items-center justify-center px-4 py-12 md:px-6 lg:py-16">
-                <div className="grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
-                    <div className="space-y-6">
-                        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                            Get in Touch
-                        </h1>
-                        <p className="text-gray-400">
+
+<section className="relative w-full h-[500px] flex items-center justify-center bg-gray-900">
+      <img
+        alt="Hero Banner"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
+        height="500"
+        src="/contactus.jpeg"
+        style={{
+          aspectRatio: "1920/500",
+          objectFit: "cover",
+        }}
+        width="1920"
+      />
+     
+    </section>
+            
+            <br />
+            <br />
+            <h3 className="text-3xl font-bold tracking-tight md:text-4xl text-center">  Get in Touch</h3>
+            <br /> 
+                        <h4 className="text-white font-bold text-center">
                             Have a question or need assistance? Fill out the
                             form and we'll get back to you as soon as possible.
-                        </p>
+                        </h4>
+            <main className="container mx-auto flex flex-1 flex-col items-center justify-center px-4 py-12 md:px-6 lg:py-16">
+                <div className="grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
+
+               
+                        
+                    <div className="space-y-6">
+                        
                         <Card className="h-full">
                             <CardHeader>
                                 <CardTitle>Our Location</CardTitle>
@@ -88,21 +109,7 @@ export default function Contact() {
                     </div>
                 </div>
             </main>
-            <footer className="bg-[#0f172a] py-6">
-                <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
-                    <p className="text-sm text-gray-400">
-                        © 2024 Driving License Management. All rights reserved.
-                    </p>
-                    <nav className="flex items-center space-x-4">
-                        <Link className="text-sm hover:text-gray-300" href="#">
-                            Privacy Policy
-                        </Link>
-                        <Link className="text-sm hover:text-gray-300" href="#">
-                            Terms of Service
-                        </Link>
-                    </nav>
-                </div>
-            </footer>
+           
         </div>
     );
 }

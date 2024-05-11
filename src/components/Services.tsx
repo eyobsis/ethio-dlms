@@ -14,6 +14,21 @@ import { Link } from "react-router-dom";
 
 export default function Services() {
     return (
+<>
+        <section className="relative w-full h-[500px] flex items-center justify-center bg-gray-900">
+      <img
+        alt="Hero Banner"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
+        height="500"
+        src="/service.jpeg"
+        style={{
+          aspectRatio: "1920/500",
+          objectFit: "cover",
+        }}
+        width="1920"
+      />
+     
+    </section>
         <main className="container mx-auto my-12 grid gap-8 px-4 md:grid-cols-2 lg:grid-cols-4">
             <Card className="flex flex-col justify-between rounded-lg bg-gray-950 shadow-md dark:bg-gray-950 dark:text-gray-50">
                 <div>
@@ -113,5 +128,7 @@ export default function Services() {
                 </CardFooter>
             </Card>
         </main>
+
+        </>
     );
 }

@@ -3,6 +3,7 @@
  * @see https://v0.dev/t/7qbHoBhMXRQ
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+
 import {Link} from 'react-router-dom';
 import { Button } from "@/components/ui/button"
 import { DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
@@ -13,7 +14,16 @@ export default function Navbar() {
     <header className="flex items-center justify-between h-16 px-4 bg-white shadow-lg dark:bg-gray-950 md:px-6">
       <Link className="flex items-center gap-2" to="/">
         
-        <span className="text-lg font-semibold tracking-tight">ETHIO-DLMS</span>
+        <span className="text-lg font-semibold tracking-tight">
+
+          <img src={'../public/logologo.png'} alt="Dlms" style={{
+            height: '200px',
+            width: '200px',
+            backgroundColor:''
+            
+          
+          }}/>
+        </span>
       </Link>
       <nav className="hidden md:flex md:items-center md:gap-6">
         <Link
