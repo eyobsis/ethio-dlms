@@ -31,6 +31,7 @@ import Footer from './markup/components/Footer/Footer';
 import PrivateAuthRoute from './markup/components/Auth/PrivateAuthRoute';
 
 
+
 function App() {
   return (
     <>

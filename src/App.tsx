@@ -10,9 +10,11 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Signup from "./components/Signup";
-import Login from './components/Login';
+import Login from "./components/Login";
 import SelectOptions from "./components/SelectOptions";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/Admin/Dashboard";
+import UserDashboard from "./components/UserDashboard/UserDashboard";
+
 function App() {
     /* const [totalUsers, setTotalUsers] = useState(0);
   const [totalAdmin, setTotalAdmin] = useState(0);
@@ -43,14 +45,17 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/service" element={<Services />} />
+                <Route path="/service" element={<Services/>} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/Hero" element={<Hero />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/services" element={<SelectOptions />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="admin/dashboard" element={<Dashboard />} />
+                <Route path="user/dashboard" element={<UserDashboard />} />
+
+                
 
                 
             </Routes>

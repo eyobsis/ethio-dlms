@@ -1,3 +1,35 @@
+#!/bin/bash
+
+
+# Create the ServiceCard component
+cat > src/components/ServiceCard.tsx <<EOL
+import React from 'react';
+
+interface ServiceCardProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) => {
+  return (
+    <div className="max-w-sm rounded overflow-hidden shadow-lg p-6 bg-white">
+      <div className="flex items-center justify-center mb-4">
+        {icon}
+      </div>
+      <div className="font-bold text-xl mb-2 text-center">{title}</div>
+      <p className="text-gray-700 text-base text-center">
+        {description}
+      </p>
+    </div>
+  );
+};
+
+export default ServiceCard;
+EOL
+
+# Create the Services component
+cat > src/components/Services.tsx <<EOL
 import React from 'react';
 import ServiceCard from './ServiceCard';
 import { FaRegIdCard, FaRegCalendarAlt, FaRegBuilding, FaRegClipboard, FaRegFileAlt } from 'react-icons/fa';
@@ -52,3 +84,6 @@ const Services: React.FC = () => {
 };
 
 export default Services;
+EOL
+
+echo "Setup complete. Navigate to the 'my-app' directory and start the development server with 'npm start'."
