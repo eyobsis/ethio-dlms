@@ -22,6 +22,10 @@ const Header = () => {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
+
+            <li>
+              <Link to="/upload">FileUpload</Link>
+            </li>
           </ul>
         </nav>
         <div id="google_translate_element" style={{ paddingLeft: 35, paddingRight: 15 }}>

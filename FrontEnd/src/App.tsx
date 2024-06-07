@@ -14,6 +14,7 @@ import Login from "./components/Login";
 import SelectOptions from "./components/SelectOptions";
 import Dashboard from "./components/Admin/Dashboard";
 import UserDashboard from "./components/UserDashboard/UserDashboard";
+import FileUpload from "./components/FileUpload/FileUpload";
 
 function App() {
     /* const [totalUsers, setTotalUsers] = useState(0);
@@ -52,8 +53,9 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/services" element={<SelectOptions />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="admin/dashboard" element={<Dashboard />} />
-                <Route path="user/dashboard" element={<UserDashboard />} />
+                <Route path="/admin/dashboard" element={<Dashboard />} />
+                <Route path="/user/dashboard" element={<UserDashboard />} />
+                <Route path="/upload" element={<FileUpload />} />
 
                 
 
