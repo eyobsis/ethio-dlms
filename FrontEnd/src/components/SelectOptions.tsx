@@ -49,7 +49,7 @@ export default function Services() {
                 <CardFooter>
                     <Link
                         className="inline-flex w-full items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-gray-950"
-                        href="#"
+                        to="/renew-license"
                     >
                         Renew License
                     </Link>
@@ -59,7 +59,7 @@ export default function Services() {
                 <div>
                     <CardHeader>
                         <CardTitle className="text-white">
-                            New Student Registration
+                            New Lisence Registration
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -73,9 +73,9 @@ export default function Services() {
                 <CardFooter>
                     <Link
                         className="inline-flex w-full items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-gray-950"
-                        href="#"
+                        to="/register-for-new-license"
                     >
-                        Register as Student
+                        Register
                     </Link>
                 </CardFooter>
             </Card>
@@ -97,7 +97,7 @@ export default function Services() {
                 <CardFooter>
                     <Link
                         className="inline-flex w-full items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-gray-950"
-                        href="#"
+                        to="/register-vehicle"
                     >
                         Register Vehicle
                     </Link>
@@ -122,7 +122,7 @@ export default function Services() {
                 <CardFooter>
                     <Link
                         className="inline-flex w-full items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-gray-950"
-                        href="#"
+                        to="/book-lessons"
                     >
                         Book Lessons
                     </Link>

@@ -1,68 +1,46 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/7qbHoBhMXRQ
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-
-import {Link} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
 import { DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 
 export default function Navbar() {
-  return (
-    <header className="flex items-center justify-between h-16 px-4 bg-white shadow-lg dark:bg-gray-950 md:px-6">
-      <Link className="flex items-center gap-2" to="/">
-        
-        <span className="text-lg font-semibold tracking-tight">
+  const navigate = useNavigate();
 
-          <img src={'../public/logologo.png'} alt="Dlms" style={{
-            height: '200px',
-            width: '200px',
-            backgroundColor:''
-            
-          
-          }}/>
+  const handleLogout = () => {
+    // Clear localStorage keys for token and user
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    // Redirect to the home page
+    navigate("/");
+  };
+
+  return (
+    <header className="flex items-center justify-between h-16 px-4 bg-dark-blue-900 shadow-lg text-black md:px-6">
+      <Link className="flex items-center gap-2" to="/">
+        <span className="text-lg font-semibold tracking-tight">
+          <img src={'../public/logologo.png'} alt="Dlms" style={{ height: '200px', width: '200px', backgroundColor:'' }} />
         </span>
       </Link>
       <nav className="hidden md:flex md:items-center md:gap-6">
-        <Link
-          aria-current="page"
-          className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          to="/"
-        >
-          Home
-        </Link>
-        <Link
-          className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          to="/about"
-        >
-          About
-        </Link>
-        <Link
-          className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          to="/services"
-        >
-          Services
-        </Link>
-        <Link
-          className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          to="/contact"
-        >
-          Contact
-        </Link>
-        <Link
-          className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          to="login"
-        >
-          Login
-        </Link>
-        <Link
-          className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-          to="/signup"
-        >
-          SignUp
-        </Link>
+        <LinkButton to="/">Home</LinkButton>
+        <LinkButton to="/about">About</LinkButton>
+        <LinkButton to="/services">Services</LinkButton>
+        <LinkButton to="/contact">Contact</LinkButton>
+        {localStorage.getItem("user") ? (
+          // If user is logged in (user key exists in localStorage), render Logout link
+          <Button
+            onClick={handleLogout}
+            className="nav-link"
+          >
+            Logout
+          </Button>
+        ) : (
+          // If user is not logged in, render Login and SignUp links
+          <>
+            <LinkButton to="/login">Login</LinkButton>
+            <LinkButton to="/signup">SignUp</LinkButton>
+          </>
+        )}
         <div className="relative">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -103,43 +81,25 @@ export default function Navbar() {
         </SheetTrigger>
         <SheetContent side="right">
           <div className="grid gap-4 p-4">
-            <Link
-              aria-current="page"
-              className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              to="#"
-            >
-              Home
-            </Link>
-            <Link
-              className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              to="#"
-            >
-              About
-            </Link>
-            <Link
-              className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              to="#"
-            >
-              Products
-            </Link>
-            <Link
-              className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              to="#"
-            >
-              Contact
-            </Link>
-            <Link
-              className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              to="#"
-            >
-              Login
-            </Link>
-            <Link
-              className="text-sm font-medium transition-colors hover:text-gray-900 hover:bg-blue-300 dark:hover:text-gray-50 data-[active=true]:font-semibold data-[active=true]:text-[#00b300] dark:data-[active=true]:text-[#00b300]"
-              to="#"
-            >
-              Sign Up
-            </Link>
+            <LinkButton to="/">Home</LinkButton>
+            <LinkButton to="/about">About</LinkButton>
+            <LinkButton to="/services">Services</LinkButton>
+            <LinkButton to="/contact">Contact</LinkButton>
+            {localStorage.getItem("user") ? (
+              // If user is logged in (user key exists in localStorage), render Logout link
+              <Button
+                onClick={handleLogout}
+                className="nav-link"
+              >
+                Logout
+              </Button>
+            ) : (
+              // If user is not logged in, render Login and SignUp links
+              <>
+                <LinkButton to="/login">Login</LinkButton>
+                <LinkButton to="/signup">SignUp</LinkButton>
+              </>
+            )}
             <div className="relative">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -175,6 +135,17 @@ export default function Navbar() {
       </Sheet>
     </header>
   )
+}
+
+function LinkButton({ to, children }) {
+  return (
+    <Link
+      to={to}
+      className="px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300 transition duration-300 ease-in-out active:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+    >
+      {children}
+    </Link>
+  );
 }
 
 function FlagIcon(props) {
