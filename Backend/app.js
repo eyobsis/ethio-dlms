@@ -1,5 +1,7 @@
 // Import the express module 
 const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
 //const mongoose = require("mongoose");
 // const stripe = require("./stripe");
 // Import the dotenv module and call the config method to load the environment variables
@@ -29,11 +31,13 @@ const router = require('./routes');
 // Add the express.json middleware to the application
 app.use(express.json());
 // Add the sanitizer to the express middleware 
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 //app.use("/api/stripe", stripe);
 app.use(sanitize.middleware);
 // Add the routes to the application as middleware 
 app.use(router);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Start the webserver
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);

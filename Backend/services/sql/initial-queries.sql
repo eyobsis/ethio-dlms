@@ -79,6 +79,16 @@ CREATE TABLE IF NOT EXISTS `products` (
   FOREIGN KEY (`category_id`) REFERENCES `categories`(`category_id`)
 ) ENGINE=InnoDB;
 
+--file upload table
+CREATE TABLE IF NOT EXISTS `files` (
+  `file_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `fileName` VARCHAR(255) NOT NULL,
+  `filePath` VARCHAR(255) NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+
+
 -- product_images
 CREATE TABLE IF NOT EXISTS `product_images` (
   `image_id` INT PRIMARY KEY AUTO_INCREMENT,

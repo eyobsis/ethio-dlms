@@ -14,8 +14,9 @@ const loginRoutes = require("./login.routes");
 const orderRoutes = require("./order.routes");
 const signupRoutes = require("./signup.routes");
 const stripeRoutes = require("./stripe.routes");
+const fileRoutes = require("./file.routes");
 // Add the stripe routes to the main router
-
+router.use(fileRoutes);
 router.use(imageRoutes);
 
 router.use(getAllUsersRoute);
