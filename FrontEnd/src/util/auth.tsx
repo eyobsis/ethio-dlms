@@ -1,9 +1,20 @@
 type User = {
-    user_token?: string;
-    user_role?: string;
-    user_id?: string;
-    user_fullName?: string;
-  };
+  active_user: number;
+  created_at: string;
+  email: string;
+  full_name: string;
+  gender: string;
+  password: string;
+  phone: string;
+  role_name: string;
+  user_id: number;
+  user_role_id: number;
+  username: string;
+  user_token: string; // Assuming user_token is also a property returned by getAuth
+  user_role: string;  // Assuming user_role is also a property returned by getAuth
+}
+
+
 
 
 
@@ -12,7 +23,7 @@ type User = {
 const getAuth = async () => {
     const token = JSON.parse(localStorage.getItem('token') || '{}');
     const user: User = JSON.parse(localStorage.getItem('user') || '{}');
-    console.log(user.data)
+    console.log(user)
     if (user && token) {
       const decodedToken = await decodeTokenPayload(token);
       console.log(decodedToken)
@@ -20,7 +31,7 @@ const getAuth = async () => {
       
 
       
-      console.log(user_data_from_token)
+      console.log(user_data_from_token.user_id)
       return user_data_from_token;
     } else {
       return {};

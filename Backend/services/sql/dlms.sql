@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   UNIQUE KEY `admin_name` (`admin_name`),
   UNIQUE KEY `admin_username` (`admin_username`),
   UNIQUE KEY `admin_email` (`admin_email`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `email` varchar(255) NOT NULL,
   `feedback` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `learners` (
   UNIQUE KEY `learners_email` (`learners_email`),
   UNIQUE KEY `learners_name_2` (`learners_name`),
   UNIQUE KEY `learners_name_3` (`learners_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `permit` (
   `user_id` int(11) NOT NULL,
   `document` longblob NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `renewal_payment` (
   `paid` varchar(10) DEFAULT 'Yes',
   `paid_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `tbl_uploads` (
   `size` int(11) NOT NULL,
   `data` longblob NOT NULL,
   PRIMARY KEY (`fileid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `trial_exam` (
   `location7` varchar(255) DEFAULT NULL,
   `overall` varchar(10) DEFAULT 'N/A',
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `trial_result` (
   `Issued_state` int(11) DEFAULT NULL,
   `Issued_date` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -204,37 +204,10 @@ CREATE TABLE IF NOT EXISTS `trial_slip` (
   `user_id` int(11) NOT NULL,
   `document` longblob NOT NULL,
   PRIMARY KEY (`doc_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(20) NOT NULL,
-  `full_name` varchar(100) NOT NULL,
-  `user_password` varchar(255) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `nic` varchar(20) NOT NULL,
-  `user_email` varchar(50) NOT NULL,
-  `contact_no` varchar(10) NOT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `type` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_name` (`user_name`),
-  UNIQUE KEY `nic` (`nic`),
-  UNIQUE KEY `user_email` (`user_email`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users_learners`
---
 
 DROP TABLE IF EXISTS `users_learners`;
 CREATE TABLE IF NOT EXISTS `users_learners` (
@@ -263,13 +236,10 @@ CREATE TABLE IF NOT EXISTS `users_learners` (
   `scheduled` varchar(1) DEFAULT '0',
   `no` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `user_details`
---
 
 DROP TABLE IF EXISTS `user_details`;
 CREATE TABLE IF NOT EXISTS `user_details` (
@@ -301,11 +271,9 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `status` varchar(25) DEFAULT 'Pending',
   `Description` varchar(225) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `user_details_renewal`
 --
 
@@ -327,11 +295,9 @@ CREATE TABLE IF NOT EXISTS `user_details_renewal` (
   `Issuing_State` int(11) DEFAULT NULL,
   `Issued_date` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `written_exam`
 --
 
@@ -347,11 +313,9 @@ CREATE TABLE IF NOT EXISTS `written_exam` (
   `result` varchar(10) DEFAULT 'N/A',
   `trial_scheduled` varchar(10) DEFAULT 'No',
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `written_exam_slip`
 --
 
@@ -361,11 +325,9 @@ CREATE TABLE IF NOT EXISTS `written_exam_slip` (
   `user_id` int(11) NOT NULL,
   `document` longblob NOT NULL,
   PRIMARY KEY (`doc_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `written_payment`
 --
 
@@ -379,9 +341,5 @@ CREATE TABLE IF NOT EXISTS `written_payment` (
   `scheduled` varchar(10) DEFAULT 'No',
   `attempt` varchar(10) DEFAULT '1',
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-COMMIT;
+) ENGINE=InnoDB;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,7 +1,16 @@
-import { useState, useEffect } from "react";
+// src/UserDashboard.tsx
+import React, { useState, useEffect } from "react";
 import Cards from "./cards";
 import Header from "./Header";
 import SideBar from "./SideBar";
+import RegisterForNewLicense from "../Pages/RegisterForNewLicense";
+import RenewLicense from "../Pages/RenewLicense";
+import Exams from "./Exams";
+import DrivingSchool from "./DrivingSchool";
+import ActivityLog from "./ActivityLog";
+import Appointments from "./Appointments";
+import Payments from "./Payments";
+import Settings from "./Settings";
 
 interface User {
   user_id: number;
@@ -19,6 +28,8 @@ interface User {
 
 export default function UserDashboard() {
   const [formData, setFormData] = useState<Partial<User>>({});
+  const [selectedComponent, setSelectedComponent] =
+    useState<string>("Dashboard");
 
   useEffect(() => {
     // Retrieve user data from localStorage
@@ -28,16 +39,33 @@ export default function UserDashboard() {
     }
   }, []);
 
+  const handleMenuSelect = (component: string) => {
+    setSelectedComponent(component);
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-950 text-white">
       <Header />
       <div className="flex flex-1">
+        <SideBar
+          full_name={formData.full_name || ""}
+          onSelect={handleMenuSelect}
+        />
         <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-y-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-            <Cards {...formData} />
+            {selectedComponent === "Dashboard" && <Cards {...formData} />}
+            {selectedComponent === "RegisterForNewLicense" && (
+              <RegisterForNewLicense />
+            )}
+            {selectedComponent === "RenewLicense" && <RenewLicense />}
+            {selectedComponent === "Exams" && <Exams />}
+            {selectedComponent === "DrivingSchool" && <DrivingSchool />}
+            {selectedComponent === "ActivityLog" && <ActivityLog />}
+            {selectedComponent === "Appointments" && <Appointments />}
+            {selectedComponent === "Payments" && <Payments />}
+            {selectedComponent === "Settings" && <Settings />}
           </div>
         </main>
-        <SideBar full_name={formData.full_name || ""} />
       </div>
     </div>
   );
