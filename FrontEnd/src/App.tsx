@@ -21,6 +21,7 @@ import RenewLicense from "./components/Pages/RenewLicense";
 import RegisterForNewLicense from "./components/Pages/RegisterForNewLicense";
 import RegisterVehicle from "./components/Pages/RegisterVehicle";
 import BookLessons from "./components/Pages/BookLessons";
+import FileList from "./components/Admin/FileList";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path="/book-lessons" element={<BookLessons />} />
         <Route path="/file-upload" element={<FileUpload />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/admin/file-list" element={<FileList />} />
       </Routes>
       <Footer />
     </>

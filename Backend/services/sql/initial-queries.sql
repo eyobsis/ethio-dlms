@@ -22,6 +22,28 @@ CREATE TABLE IF NOT EXISTS `user_roles` (
   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`)
 ) ENGINE=InnoDB;
 
+
+--files table
+CREATE TABLE IF NOT EXISTS `files` (
+  `file_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `fileName` VARCHAR(255) NOT NULL,
+  `filePath` VARCHAR(255) NOT NULL,
+  `user_id` INT,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+--new Driving License tranee registrant table 
+CREATE TABLE IF NOT EXISTS `driving_license_trainee` (
+  `trainee_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `address` VARCHAR(255) NOT NULL,
+  `dob` VARCHAR(255) NOT NULL,
+  `vehicleType` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `user_id` INT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+) ENGINE=InnoDB;
+
+
 -- Add orders
 CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` INT NOT NULL AUTO_INCREMENT,
@@ -54,13 +76,6 @@ CREATE TABLE IF NOT EXISTS `vehicle_categories` (
 
 
 
---file upload table
-CREATE TABLE IF NOT EXISTS `files` (
-  `file_id` INT PRIMARY KEY AUTO_INCREMENT,
-  `fileName` VARCHAR(255) NOT NULL,
-  `filePath` VARCHAR(255) NOT NULL,
-  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB;
 
 
 

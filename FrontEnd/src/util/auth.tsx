@@ -26,7 +26,7 @@ const getAuth = async () => {
     console.log(user)
     if (user && token) {
       const decodedToken = await decodeTokenPayload(token);
-      console.log(decodedToken)
+      console.log(`the decoded token is ==============> ${decodedToken}`)
       const user_data_from_token = decodedToken.user.data
       
 

@@ -72,11 +72,11 @@ export default function Login({}) {
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#0b1e3b] px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-lg shadow-lg">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Welcome to Gebeya Tech E-commerce
-          </h2>
+          <h4 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+            Login To ONLINE DRIVERS LICENCE APOINTMENT MANAGEMENT SYSTEM ODLAMA
+          </h4>
           <p className="mt-2 text-center text-sm text-gray-500">
-            Your Gateway to Seamless Shopping!
+            BOOK YOUR APOINTMENT NOW
           </p>
         </div>
         <form onSubmit={handleSubmit}>

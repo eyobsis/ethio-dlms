@@ -64,8 +64,32 @@ async function getAllUsers(req, res, next) {
         });
     }
 }
+
+// get user by id 
+async function getUserById(req, res) {
+    try {
+        const userId = req.params.id;
+        const user = await UserService.getUserById(userId);
+        if (!user) {
+            res.status(400).json({
+                error: "Failed to get user!",
+            });
+        } else {
+            res.status(200).json({
+                status: "success",
+                data: user,
+            });
+        }
+    } catch (error) {
+        console.error("Error getting user:", error);
+        res.status(400).json({
+            error: "Something went wrong!",
+        });
+    }
+}
 // Export the createUser controller
 module.exports = {
     createUser,
     getAllUsers,
+    getUserById,
 };

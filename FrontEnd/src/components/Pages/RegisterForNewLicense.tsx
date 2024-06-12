@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import RegisterForLicense from "./RegisterForLicense";
 import {
   Collapsible,
   CollapsibleTrigger,
@@ -26,7 +27,7 @@ export default function RegisterForNewLicense() {
               </p>
               <div className="mt-6">
                 <Link
-                  href="#"
+                  to="/"
                   className="inline-flex h-10 items-center justify-center rounded-md bg-[#1E40AF] px-8 text-sm font-medium text-gray-50 shadow-md transition-colors hover:bg-[#1E40AF]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1E40AF] disabled:pointer-events-none disabled:opacity-50 dark:bg-[#1E40AF] dark:text-gray-50 dark:hover:bg-[#1E40AF]/90 dark:focus-visible:ring-[#1E40AF]"
                   prefetch={false}
                 >
@@ -36,11 +37,11 @@ export default function RegisterForNewLicense() {
             </div>
             <div className="flex flex-col items-center justify-center">
               <img
-                src=""
-                width="550"
-                height="400"
+                src="https://ideogram.ai/assets/image/lossless/response/3VlUNU-KT6e6KDOuDptSmA"
+                width="700"
+                height="300"
                 alt="Driver's License"
-                className="mx-auto aspect-[11/8] overflow-hidden rounded-xl object-cover object-center sm:w-full"
+                className="mx-auto aspect-[5/2] overflow-hidden rounded-xl object-cover object-center sm:w-full"
               />
             </div>
           </div>
@@ -70,38 +71,7 @@ export default function RegisterForNewLicense() {
                   <ChevronDownIcon className="h-5 w-5 transition-transform [&[data-state=open]]:rotate-180" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="px-4 pt-4">
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <div>
-                        <Label htmlFor="firstName">First Name</Label>
-                        <Input id="firstName" placeholder="John" />
-                      </div>
-                      <div>
-                        <Label htmlFor="middleName">Middle Name</Label>
-                        <Input id="middleName" placeholder="Quincy" />
-                      </div>
-                      <div>
-                        <Label htmlFor="lastName">Last Name</Label>
-                        <Input id="lastName" placeholder="Doe" />
-                      </div>
-                    </div>
-                    <div>
-                      <Label htmlFor="dateOfBirth">Date of Birth</Label>
-                      <Input id="dateOfBirth" type="date" />
-                    </div>
-                    <div>
-                      <Label htmlFor="address">Address</Label>
-                      <Textarea
-                        id="address"
-                        placeholder="123 Main St, Anytown USA"
-                      />
-                    </div>
-                    <div className="flex justify-end">
-                      <Button className="bg-[#1E40AF] text-gray-50 shadow-md hover:bg-[#1E40AF]/90 focus-visible:ring-[#1E40AF] dark:bg-[#1E40AF] dark:text-gray-50 dark:hover:bg-[#1E40AF]/90 dark:focus-visible:ring-[#1E40AF]">
-                        Next
-                      </Button>
-                    </div>
-                  </div>
+                  <RegisterForLicense />
                 </CollapsibleContent>
               </Collapsible>
               <Collapsible>

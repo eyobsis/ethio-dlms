@@ -1,50 +1,56 @@
-// services/file.service.js
+const FileModel = require("../models/file.models");
+const fs = require("fs");
+const path = require("path");
 
-const FileModel = require('../models/file.models');
-const fs = require('fs');
-const path = require('path');
+const uploadFile = async (file, userId) => {
+  const newFile = await FileModel.createFile(
+    file.originalname,
+    file.path,
+    userId
+  );
+  console.log(userId);
 
-class FileService {
-  async uploadFile(file) {
-    const newFile = await FileModel.createFile(file.originalname, file.path);
-    return newFile;
+  return newFile;
+};
+
+const getFiles = async () => {
+  const files = await FileModel.getFiles();
+  return files;
+};
+
+const getFileById = async (id) => {
+  const file = await FileModel.getFileById(id);
+  return file;
+};
+
+const updateFile = async (id, file) => {
+  const existingFile = await FileModel.getFileById(id);
+  if (!existingFile) {
+    throw new Error("File not found");
   }
 
-  async getFiles() {
-    const files = await FileModel.getFiles();
-    return files;
+  // Remove old file
+  fs.unlinkSync(path.join(__dirname, "../", existingFile.filePath));
+
+  const updatedFile = await FileModel.updateFile(
+    id,
+    file.originalname,
+    file.path
+  );
+  return updatedFile;
+};
+
+const deleteFile = async (id) => {
+  const file = await FileModel.getFileById(id);
+  if (!file) {
+    throw new Error("File not found");
   }
 
-  async getFileById(id) {
-    const file = await FileModel.getFileById(id);
-    return file;
-  }
+  // Remove file from disk
+  fs.unlinkSync(path.join(__dirname, "../", file.filePath));
 
-  async updateFile(id, file) {
-    const existingFile = await FileModel.getFileById(id);
-    if (!existingFile) {
-      throw new Error('File not found');
-    }
+  await FileModel.deleteFile(id);
+  return { message: "File deleted successfully" };
+};
 
-    // Remove old file
-    fs.unlinkSync(path.join(__dirname, '../', existingFile.filePath));
-
-    const updatedFile = await FileModel.updateFile(id, file.originalname, file.path);
-    return updatedFile;
-  }
-
-  async deleteFile(id) {
-    const file = await FileModel.getFileById(id);
-    if (!file) {
-      throw new Error('File not found');
-    }
-
-    // Remove file from disk
-    fs.unlinkSync(path.join(__dirname, '../', file.filePath));
-
-    await FileModel.deleteFile(id);
-    return { message: 'File deleted successfully' };
-  }
-}
-
-module.exports = new FileService();
+module.exports = { uploadFile, getFiles, getFileById, updateFile, deleteFile };

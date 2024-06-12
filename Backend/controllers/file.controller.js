@@ -5,7 +5,12 @@ const fileService = require('../services/file.service');
 // Create
 exports.uploadFile = async (req, res) => {
   try {
-    const newFile = await fileService.uploadFile(req.file);
+    const userId = req.headers.userid;
+    console.log(userId);
+    const newFile = await fileService.uploadFile(req.file, userId);
+    console.log(req.body);
+    console.log(req.file);
+
     res.status(201).json(newFile);
   } catch (error) {
     res.status(500).json({ message: error.message });

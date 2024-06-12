@@ -167,10 +167,29 @@ async function getAllUsers() {
     console.log('$$$$$$$===========$$$$$$$$$$$')
 }
 
+//get user by id
+async function getUserById(userId) {
+    const sqlQuery = `SELECT * FROM users WHERE user_id = ?`
+    try {
+        const rows = await query(sqlQuery, [userId]);
+        if (!rows || rows.length === 0) {
+            return null;
+        }
+        console.log(rows[0])
+        return rows[0];
+    } catch (error) {
+        console.error("Database query error:", error);
+        throw error;
+    }
+}
+      
+    
+
 // Export the functions for use in the controller
 module.exports = {
     checkIfUserExists,
     createUser,
     getUserByEmail,
     getAllUsers,
+    getUserById,
 };

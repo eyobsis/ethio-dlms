@@ -1,22 +1,39 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import FileList from './FileList';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import getAuth from "../../util/auth";
 
-const FileUpload: React.FC = () => {
-  const user = getAuth;
-  user.then((responce) => {
-    console.log(responce.user_id);
-    const userId = responce.user_id;
-    console.log(userId);
-  });
-  console.log(user);
+interface AuthResponse {
+  user_id: string;
+}
 
-  console.log(userId);
+interface FileUploadProps {
+  uploadUrl: string;
+  title: string;
+}
+
+const FileUpload: React.FC<FileUploadProps> = ({ uploadUrl, title }) => {
+  const [user, setUser] = useState<string | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [fetchOnUpload, setFetchOnUpload] = useState<boolean>(false);
+
+  useEffect(() => {
+    const fetchAuth = async () => {
+      try {
+        const response: AuthResponse = await getAuth();
+        console.log("User authenticated:", response.user_id);
+        setUser(response.user_id);
+      } catch (error) {
+        console.error("Error fetching auth:", error);
+        toast.error("Failed to authenticate user");
+      }
+    };
+
+    fetchAuth();
+  }, []);
+
+  console.log("User:", user);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -25,7 +42,15 @@ const FileUpload: React.FC = () => {
   };
 
   const handleUpload = async () => {
-    if (!file) return;
+    if (!file) {
+      toast.warning("No file selected");
+      return;
+    }
+
+    if (!user) {
+      toast.error("User not authenticated");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("file", file);
@@ -33,25 +58,36 @@ const FileUpload: React.FC = () => {
     console.log("Uploading file:", file);
 
     try {
-      await axios.post("http://localhost:8000/api/file/upload", formData, {
+      const response = await axios.post(uploadUrl, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-          UserId: userId,
+          // Ensure correct case as expected by backend
+          userid: user,
         },
       });
+      console.log("File upload response:", response);
       toast.success("File uploaded successfully");
       setFile(null); // Clear selected file after successful upload
       setFetchOnUpload((prev) => !prev); // Toggle fetchOnUpload to trigger useEffect in FileList
     } catch (error) {
-      console.error("Error uploading file:", error);
-      toast.error("Error uploading file");
+      if (axios.isAxiosError(error)) {
+        console.error("Axios error:", error.response?.data || error.message);
+        toast.error(
+          `Error uploading file: ${
+            error.response?.data?.message || error.message
+          }`
+        );
+      } else {
+        console.error("Unexpected error:", error);
+        toast.error("Unexpected error occurred");
+      }
     }
   };
 
   return (
     <section className="container mx-auto p-4">
       <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-4">Upload File</h2>
+        <h2 className="text-2xl font-bold mb-4">{title}</h2>
         <input
           type="file"
           onChange={handleFileChange}
@@ -63,9 +99,6 @@ const FileUpload: React.FC = () => {
         >
           Upload
         </button>
-      </div>
-      <div className="mt-8">
-        <FileList fetchOnUpload={fetchOnUpload} />
       </div>
       <ToastContainer position="top-right" />
     </section>
