@@ -171,22 +171,24 @@ export default function RegisterForRenewal() {
                 Submit User Data
               </Button>
             </form>
-            <FileUpload
-              uploadUrl="http://localhost:8000/api/file/upload"
-              title="Upload ID Card"
-            />
-            <FileUpload
-              uploadUrl="http://localhost:8000/api/file/upload"
-              title="Upload Birth Certificate"
-            />
-            <FileUpload
-              uploadUrl="http://localhost:8000/api/file/upload"
-              title="Upload Medical PDF"
-            />
-            <FileUpload
-              uploadUrl="http://localhost:8000/api/file/upload"
-              title="Upload Photo"
-            />
+            <div className="text-black">
+              <FileUpload
+                uploadUrl="http://localhost:8000/api/file/upload"
+                title="Upload ID Card"
+              />
+              <FileUpload
+                uploadUrl="http://localhost:8000/api/file/upload"
+                title="Upload Birth Certificate"
+              />
+              <FileUpload
+                uploadUrl="http://localhost:8000/api/file/upload"
+                title="Upload Medical PDF"
+              />
+              <FileUpload
+                uploadUrl="http://localhost:8000/api/file/upload"
+                title="Upload Photo"
+              />
+            </div>
           </div>
         </div>
       </div>

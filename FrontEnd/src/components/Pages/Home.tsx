@@ -34,13 +34,13 @@ export default function Home() {
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <Link
                     className="inline-flex h-10 items-center justify-center rounded-md bg-yellow-500 px-6 text-sm font-medium text-[#1e3a8a] shadow transition-colors hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-                    href="#"
+                    to="/services"
                   >
                     Get Started
                   </Link>
                   <Link
                     className="inline-flex h-10 items-center justify-center rounded-md border border-white px-6 text-sm font-medium text-white shadow transition-colors hover:bg-white hover:text-[#1e3a8a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-                    href="#"
+                    to="/about"
                   >
                     Learn More
                   </Link>

@@ -1,23 +1,31 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/43Jy2ScIZRI
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import {Link} from "react-router-dom"
-import { Card } from "@/components/ui/card"
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
-import { ResponsiveBar } from "@nivo/bar"
-import { ResponsiveLine } from "@nivo/line"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Link } from "react-router-dom";
+import { Card } from "@/components/ui/card";
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+} from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { ResponsiveBar } from "@nivo/bar";
+import { ResponsiveLine } from "@nivo/line";
 
-export default function Dashboard () {
-  const [chartType, setChartType] = useState("bar")
+export default function Dashboard() {
+  const [chartType, setChartType] = useState("bar");
   const [chartData, setChartData] = useState([
     { label: "Jan", value: 1200 },
     { label: "Feb", value: 1500 },
@@ -25,18 +33,18 @@ export default function Dashboard () {
     { label: "Apr", value: 1400 },
     { label: "May", value: 1600 },
     { label: "Jun", value: 1900 },
-  ])
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  ]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleChartTypeChange = (type) => {
-    setChartType(type)
-  }
+    setChartType(type);
+  };
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <div className="flex flex-col min-h-screen bg-[#0b1120] dark:bg-[#0b1120]">
       <header className="flex justify-between p-4 bg-[#0f1629] shadow dark:bg-[#0f1629] md:px-6">
-        <h1 className="text-xl font-semibold text-gray-50">DLMS - Admin</h1>
+        <h1 className="text-xl font-semibold text-gray-50">ODLAS - Admin</h1>
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" className="hidden md:block">
             <SearchIcon className="w-6 h-6 text-gray-400" />
@@ -46,7 +54,12 @@ export default function Dashboard () {
             <BellIcon className="w-6 h-6 text-gray-400" />
             <span className="sr-only">Notifications</span>
           </Button>
-          <Button variant="ghost" size="icon" className="block md:hidden" onClick={toggleMenu}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="block md:hidden"
+            onClick={toggleMenu}
+          >
             <MenuIcon className="w-6 h-6 text-gray-400" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
@@ -55,7 +68,7 @@ export default function Dashboard () {
               <Button variant="ghost" size="icon">
                 <Avatar>
                   <img src="/placeholder.svg" alt="Admin avatar" />
-                  <AvatarFallback>AD</AvatarFallback>
+                  <AvatarFallback>ADMIN</AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
@@ -86,7 +99,7 @@ export default function Dashboard () {
           <ul className="space-y-2">
             <li>
               <Link
-                href="#"
+                to="/admin/dashboard"
                 className="flex items-center p-2 text-base font-normal text-gray-50 rounded-lg dark:text-white hover:bg-[#1a2335] dark:hover:bg-[#1a2335]"
                 prefetch={false}
               >
@@ -96,12 +109,12 @@ export default function Dashboard () {
             </li>
             <li>
               <Link
-                href="#"
+                href="/admin/applications"
                 className="flex items-center p-2 text-base font-normal text-gray-50 rounded-lg dark:text-white hover:bg-[#1a2335] dark:hover:bg-[#1a2335]"
                 prefetch={false}
               >
                 <PlusIcon className="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white" />
-                <span className="ml-3">New License</span>
+                <span className="ml-3">ApproveReject</span>
               </Link>
             </li>
             <li>
@@ -111,7 +124,7 @@ export default function Dashboard () {
                 prefetch={false}
               >
                 <ArrowRightLeftIcon className="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white" />
-                <span className="ml-3">Renewal Applications</span>
+                <span className="ml-3">RenewalApplications</span>
               </Link>
             </li>
             <li>
@@ -186,7 +199,9 @@ export default function Dashboard () {
             <Card className="bg-[#0f1629] p-4 shadow-sm flex items-center dark:bg-[#0f1629]">
               <DollarSignIcon className="text-purple-500 w-8 h-8" />
               <div className="ml-4">
-                <div className="text-lg font-semibold text-gray-50">$12,345</div>
+                <div className="text-lg font-semibold text-gray-50">
+                  $12,345
+                </div>
                 <div className="text-sm text-gray-400">Total Revenue</div>
               </div>
             </Card>
@@ -194,7 +209,9 @@ export default function Dashboard () {
               <PercentIcon className="text-pink-500 w-8 h-8" />
               <div className="ml-4">
                 <div className="text-lg font-semibold text-gray-50">85%</div>
-                <div className="text-sm text-gray-400">Customer Satisfaction</div>
+                <div className="text-sm text-gray-400">
+                  Customer Satisfaction
+                </div>
               </div>
             </Card>
             <Card className="bg-[#0f1629] p-4 shadow-sm flex items-center dark:bg-[#0f1629]">
@@ -207,7 +224,9 @@ export default function Dashboard () {
             <Card className="bg-[#0f1629] p-4 shadow-sm flex items-center dark:bg-[#0f1629]">
               <CoinsIcon className="text-amber-500 w-8 h-8" />
               <div className="ml-4">
-                <div className="text-lg font-semibold text-gray-50">$45,678</div>
+                <div className="text-lg font-semibold text-gray-50">
+                  $45,678
+                </div>
                 <div className="text-sm text-gray-400">Average Order Value</div>
               </div>
             </Card>
@@ -216,15 +235,27 @@ export default function Dashboard () {
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-semibold text-gray-50">Stats</h2>
               <div className="flex items-center gap-2">
-                <Button variant="ghost" size="sm" onClick={() => handleChartTypeChange("bar")}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => handleChartTypeChange("bar")}
+                >
                   <BarChartIcon className="w-4 h-4 mr-2" />
                   Bar
                 </Button>
-                <Button variant="ghost" size="sm" onClick={() => handleChartTypeChange("line")}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => handleChartTypeChange("line")}
+                >
                   <LineChartIcon className="w-4 h-4 mr-2" />
                   Line
                 </Button>
-                <Button variant="ghost" size="sm" onClick={() => handleChartTypeChange("area")}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => handleChartTypeChange("area")}
+                >
                   <AreaChartIcon className="w-4 h-4 mr-2" />
                   Area
                 </Button>
@@ -235,7 +266,9 @@ export default function Dashboard () {
             </div>
           </div>
           <div className="mt-6">
-            <h2 className="text-lg font-semibold text-gray-50 mb-4">Recent Applications</h2>
+            <h2 className="text-lg font-semibold text-gray-50 mb-4">
+              Recent Applications
+            </h2>
             <div className="overflow-x-auto sm:overflow-x-visible">
               <Table className="w-full">
                 <TableHeader>
@@ -302,7 +335,7 @@ export default function Dashboard () {
         </main>
       </div>
     </div>
-  )
+  );
 }
 
 function AreaChartIcon(props) {
@@ -322,9 +355,8 @@ function AreaChartIcon(props) {
       <path d="M3 3v18h18" />
       <path d="M7 12v5h12V8l-5 5-4-4Z" />
     </svg>
-  )
+  );
 }
-
 
 function ArrowRightLeftIcon(props) {
   return (
@@ -345,9 +377,8 @@ function ArrowRightLeftIcon(props) {
       <path d="m8 21-4-4 4-4" />
       <path d="M4 17h16" />
     </svg>
-  )
+  );
 }
-
 
 function BarChart(props) {
   return (
@@ -399,9 +430,8 @@ function BarChart(props) {
         ariaLabel="A bar chart showing data"
       />
     </div>
-  )
+  );
 }
-
 
 function BarChartIcon(props) {
   return (
@@ -421,9 +451,8 @@ function BarChartIcon(props) {
       <line x1="18" x2="18" y1="20" y2="4" />
       <line x1="6" x2="6" y1="20" y2="16" />
     </svg>
-  )
+  );
 }
-
 
 function BellIcon(props) {
   return (
@@ -442,9 +471,8 @@ function BellIcon(props) {
       <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
       <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
     </svg>
-  )
+  );
 }
-
 
 function BriefcaseIcon(props) {
   return (
@@ -463,9 +491,8 @@ function BriefcaseIcon(props) {
       <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
       <rect width="20" height="14" x="2" y="6" rx="2" />
     </svg>
-  )
+  );
 }
-
 
 function CalendarIcon(props) {
   return (
@@ -486,9 +513,8 @@ function CalendarIcon(props) {
       <rect width="18" height="18" x="3" y="4" rx="2" />
       <path d="M3 10h18" />
     </svg>
-  )
+  );
 }
-
 
 function CarIcon(props) {
   return (
@@ -509,9 +535,8 @@ function CarIcon(props) {
       <path d="M9 17h6" />
       <circle cx="17" cy="17" r="2" />
     </svg>
-  )
+  );
 }
-
 
 function ClipboardIcon(props) {
   return (
@@ -530,9 +555,8 @@ function ClipboardIcon(props) {
       <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
       <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
     </svg>
-  )
+  );
 }
-
 
 function CoinsIcon(props) {
   return (
@@ -553,9 +577,8 @@ function CoinsIcon(props) {
       <path d="M7 6h1v4" />
       <path d="m16.71 13.88.7.71-2.82 2.82" />
     </svg>
-  )
+  );
 }
-
 
 function DollarSignIcon(props) {
   return (
@@ -574,9 +597,8 @@ function DollarSignIcon(props) {
       <line x1="12" x2="12" y1="2" y2="22" />
       <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
     </svg>
-  )
+  );
 }
-
 
 function EyeIcon(props) {
   return (
@@ -595,9 +617,8 @@ function EyeIcon(props) {
       <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
       <circle cx="12" cy="12" r="3" />
     </svg>
-  )
+  );
 }
-
 
 function FilePenIcon(props) {
   return (
@@ -617,9 +638,8 @@ function FilePenIcon(props) {
       <path d="M14 2v4a2 2 0 0 0 2 2h4" />
       <path d="M10.4 12.6a2 2 0 1 1 3 3L8 21l-4 1 1-4Z" />
     </svg>
-  )
+  );
 }
-
 
 function HomeIcon(props) {
   return (
@@ -638,9 +658,8 @@ function HomeIcon(props) {
       <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
       <polyline points="9 22 9 12 15 12 15 22" />
     </svg>
-  )
+  );
 }
-
 
 function LineChart(props) {
   return (
@@ -712,9 +731,8 @@ function LineChart(props) {
         role="application"
       />
     </div>
-  )
+  );
 }
-
 
 function LineChartIcon(props) {
   return (
@@ -733,9 +751,8 @@ function LineChartIcon(props) {
       <path d="M3 3v18h18" />
       <path d="m19 9-5 5-4-4-3 3" />
     </svg>
-  )
+  );
 }
-
 
 function LockIcon(props) {
   return (
@@ -754,9 +771,8 @@ function LockIcon(props) {
       <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
     </svg>
-  )
+  );
 }
-
 
 function LogOutIcon(props) {
   return (
@@ -776,9 +792,8 @@ function LogOutIcon(props) {
       <polyline points="16 17 21 12 16 7" />
       <line x1="21" x2="9" y1="12" y2="12" />
     </svg>
-  )
+  );
 }
-
 
 function MenuIcon(props) {
   return (
@@ -798,9 +813,8 @@ function MenuIcon(props) {
       <line x1="4" x2="20" y1="6" y2="6" />
       <line x1="4" x2="20" y1="18" y2="18" />
     </svg>
-  )
+  );
 }
-
 
 function PercentIcon(props) {
   return (
@@ -820,9 +834,8 @@ function PercentIcon(props) {
       <circle cx="6.5" cy="6.5" r="2.5" />
       <circle cx="17.5" cy="17.5" r="2.5" />
     </svg>
-  )
+  );
 }
-
 
 function PlusIcon(props) {
   return (
@@ -841,9 +854,8 @@ function PlusIcon(props) {
       <path d="M5 12h14" />
       <path d="M12 5v14" />
     </svg>
-  )
+  );
 }
-
 
 function SearchIcon(props) {
   return (
@@ -862,9 +874,8 @@ function SearchIcon(props) {
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.3-4.3" />
     </svg>
-  )
+  );
 }
-
 
 function SettingsIcon(props) {
   return (
@@ -883,9 +894,8 @@ function SettingsIcon(props) {
       <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
       <circle cx="12" cy="12" r="3" />
     </svg>
-  )
+  );
 }
-
 
 function Trash2Icon(props) {
   return (
@@ -907,9 +917,8 @@ function Trash2Icon(props) {
       <line x1="10" x2="10" y1="11" y2="17" />
       <line x1="14" x2="14" y1="11" y2="17" />
     </svg>
-  )
+  );
 }
-
 
 function TruckIcon(props) {
   return (
@@ -931,9 +940,8 @@ function TruckIcon(props) {
       <circle cx="17" cy="18" r="2" />
       <circle cx="7" cy="18" r="2" />
     </svg>
-  )
+  );
 }
-
 
 function UserIcon(props) {
   return (
@@ -952,9 +960,8 @@ function UserIcon(props) {
       <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
       <circle cx="12" cy="7" r="4" />
     </svg>
-  )
+  );
 }
-
 
 function UsersIcon(props) {
   return (
@@ -975,5 +982,5 @@ function UsersIcon(props) {
       <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
       <path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </svg>
-  )
+  );
 }
