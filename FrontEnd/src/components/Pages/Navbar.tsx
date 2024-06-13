@@ -53,6 +53,7 @@ export default function Navbar() {
         <LinkButton to="/about">About</LinkButton>
         <LinkButton to="/services">Services</LinkButton>
         <LinkButton to="/contact">Contact</LinkButton>
+
         {localStorage.getItem("user") ? (
           // If user is logged in (user key exists in localStorage), render Logout link
           <Button onClick={handleLogout} className="nav-link">
@@ -86,16 +87,19 @@ export default function Navbar() {
             <Link to="/user/dashboard">
               <DropdownMenuItem>Dashboard</DropdownMenuItem>
             </Link>
-            <Link to="/RenewMyLicense">
+
+            <Link to="/license-renewal-steps">
               <DropdownMenuItem>RenewMyLicense</DropdownMenuItem>
             </Link>
-            <Link to="/home">
+
+            <Link to="/register-for-new-license">
+              <DropdownMenuItem>RegisterForNewLicense</DropdownMenuItem>
+            </Link>
+
+            <Link to="/">
               <DropdownMenuItem>Home</DropdownMenuItem>
             </Link>
 
-            <Link to="/registerForLicense">
-              <DropdownMenuItem>registerForLicense</DropdownMenuItem>
-            </Link>
             <Link to="/settings">
               <DropdownMenuItem>Settings</DropdownMenuItem>
             </Link>
@@ -178,6 +182,12 @@ export default function Navbar() {
             <LinkButton to="/about">About</LinkButton>
             <LinkButton to="/services">Services</LinkButton>
             <LinkButton to="/contact">Contact</LinkButton>
+            <LinkButton to="/license-renewal-steps">RenewMyLicense</LinkButton>
+            <LinkButton to="/register-for-new-license">
+              RegisterForNewLicense
+            </LinkButton>
+            <LinkButton to="/login">Login</LinkButton>
+            <LinkButton to="/">Logout</LinkButton>
             {localStorage.getItem("user") ? (
               // If user is logged in (user key exists in localStorage), render Logout link
               <Button onClick={handleLogout} className="nav-link">

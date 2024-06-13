@@ -18,4 +18,13 @@ router.put("/api/updateTrainee/:id", registrationController.updateTrainee);
 // Route for deleting a trainee by ID
 router.delete("/api/deleteTrainee/:id", registrationController.deleteTrainee);
 
+//route t get new /api/renewLicense
+
+router.post("/api/renewLicense", registrationController.renewLicense);
+router.get("/api/getAllRenewals", registrationController.getAllRenewals);
+router.get("/api/getRenewalById/:id", registrationController.getRenewalById);
+router.put("/api/updateRenewal/:id", registrationController.updateRenewal);
+router.delete("/api/deleteRenewal/:id", registrationController.deleteRenewal);
+
+
 module.exports = router;

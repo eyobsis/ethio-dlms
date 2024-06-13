@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import Cards from "./cards";
 import Header from "./Header";
 import SideBar from "./SideBar";
+import ApplicationStatus from "./ApplicationStatus";
 import RegisterForNewLicense from "../Pages/RegisterForNewLicense";
-import RenewLicense from "../Pages/RenewLicense";
+import RegisterForRenewal from "../Pages/RegisterForRenewal";
 import Exams from "./Exams";
 import DrivingSchool from "./DrivingSchool";
 import ActivityLog from "./ActivityLog";
@@ -57,13 +58,14 @@ export default function UserDashboard() {
             {selectedComponent === "RegisterForNewLicense" && (
               <RegisterForNewLicense />
             )}
-            {selectedComponent === "RenewLicense" && <RenewLicense />}
+            {selectedComponent === "RenewLicense" && <RegisterForRenewal />}
             {selectedComponent === "Exams" && <Exams />}
             {selectedComponent === "DrivingSchool" && <DrivingSchool />}
             {selectedComponent === "ActivityLog" && <ActivityLog />}
             {selectedComponent === "Appointments" && <Appointments />}
             {selectedComponent === "Payments" && <Payments />}
             {selectedComponent === "Settings" && <Settings />}
+            {selectedComponent === "ApplicationStatus" && <ApplicationStatus />}
           </div>
         </main>
       </div>

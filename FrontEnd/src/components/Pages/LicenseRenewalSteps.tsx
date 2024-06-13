@@ -1,139 +1,251 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/9NBSebK04n8
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import { Link } from "react-router-dom";
+import RegisterForRenewal from "./RegisterForRenewal";
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "@/components/ui/collapsible";
+import { Button } from "@/components/ui/button";
 
-export default function Component() {
+export default function LicenseRenwalSteps() {
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-[#0B1D3B] text-white">
-      <main className="flex-1">
-        <section className="w-full pt-12 md:pt-24 lg:pt-32 border-y">
-          <div className="px-4 md:px-6 space-y-10 xl:space-y-16">
-            <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
-              <div>
-                <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-                  Renew Your Driving License
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-300 md:text-xl dark:text-gray-400">
-                  Streamline your driving license renewal process with our
-                  easy-to-use platform. Get started today!
-                </p>
-                <div className="space-x-4 mt-6">
-                  <Link
-                    href="/renew-license"
-                    className="inline-flex h-9 items-center justify-center rounded-md bg-[#1E4FD0] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#1E4FD0]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1E4FD0] disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
-                  >
-                    Renew Now
-                  </Link>
-                </div>
+    <div className="flex flex-col min-h-[100dvh]">
+      <section className="w-full py-12 md:py-24 lg:py-32 border-b">
+        <div className="container px-4 md:px-6 space-y-10 xl:space-y-16">
+          <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-1 md:gap-16">
+            <div>
+              <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
+                Renew Your Driver's License
+              </h1>
+              <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl dark:text-gray-300">
+                Follow our simple process to renew your driver's license quickly
+                and easily. Ensure you have all the necessary documents ready.
+              </p>
+              <div className="mt-6">
+                <Link
+                  to="/register-for-renewal"
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-[#1E40AF] px-8 text-sm font-medium text-gray-50 shadow-md transition-colors hover:bg-[#1E40AF]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1E40AF] disabled:pointer-events-none disabled:opacity-50 dark:bg-[#1E40AF] dark:text-gray-50 dark:hover:bg-[#1E40AF]/90 dark:focus-visible:ring-[#1E40AF]"
+                  prefetch={false}
+                >
+                  Get Started
+                </Link>
               </div>
+            </div>
+            <div className="flex flex-col items-center justify-center">
               <img
-                src="/placeholder.svg"
-                alt="Ad Banner"
-                className="w-full max-h-[200px] object-cover rounded-lg"
+                src="https://ideogram.ai/assets/image/lossless/response/QJWY7VV6QPaWvjJEWqImJQ"
+                width="700"
+                height="300"
+                alt="Driver's License Renewal"
+                className="mx-auto aspect-[5/2] overflow-hidden rounded-xl object-cover object-center sm:w-full"
               />
             </div>
           </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#0B1D3B]">
-          <div className="container space-y-12 px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Renew Your License in 3 Easy Steps
-                </h2>
-                <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Follow these simple steps to renew your driving license
-                  quickly and conveniently.
-                </p>
-              </div>
+        </div>
+      </section>
+      <section className="w-full py-12 md:py-24 lg:py-32">
+        <div className="container px-4 md:px-6">
+          <div className="space-y-8">
+            <div className="space-y-4 text-center">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Renewal Steps
+              </h2>
+              <p className="max-w-[700px] mx-auto text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-300">
+                Follow these steps to renew your driver's license.
+              </p>
             </div>
-            <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3">
-              <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
-                <h3 className="text-lg font-bold">Step 1: Gather Documents</h3>
-                <p className="text-sm text-gray-300 dark:text-gray-400">
-                  Collect the required documents, such as your current license,
-                  proof of identity, and any necessary fees.
-                </p>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
-                <h3 className="text-lg font-bold">
-                  Step 2: Complete Application
-                </h3>
-                <p className="text-sm text-gray-300 dark:text-gray-400">
-                  Fill out the online renewal application form with your
-                  personal and vehicle information.
-                </p>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
-                <h3 className="text-lg font-bold">Step 3: Submit and Wait</h3>
-                <p className="text-sm text-gray-300 dark:text-gray-400">
-                  Submit your application and payment, then wait for your new
-                  license to arrive in the mail.
-                </p>
-              </div>
+            <div className="grid gap-4 md:grid-cols-1">
+              <Collapsible>
+                <CollapsibleTrigger className="flex items-center justify-between rounded-lg bg-gray-100 p-4 font-medium transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
+                  <div>
+                    <h3 className="text-lg font-bold">Personal Information</h3>
+                    <p className="text-sm text-gray-400 dark:text-gray-300">
+                      Update your personal details for the renewal process.
+                    </p>
+                  </div>
+                  <ChevronDownIcon className="h-5 w-5 transition-transform [&[data-state=open]]:rotate-180" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-4 pt-4">
+                  <RegisterForRenewal />
+                </CollapsibleContent>
+              </Collapsible>
+              <Collapsible>
+                <CollapsibleTrigger className="flex items-center justify-between rounded-lg bg-gray-100 p-4 font-medium transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
+                  <div>
+                    <h3 className="text-lg font-bold">Vision Test</h3>
+                    <p className="text-sm text-gray-400 dark:text-gray-300">
+                      Ensure your vision meets the required standards.
+                    </p>
+                  </div>
+                  <ChevronDownIcon className="h-5 w-5 transition-transform [&[data-state=open]]:rotate-180" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-4 pt-4">
+                  <div className="space-y-4">
+                    <p>
+                      A vision test is required to renew your license. Make sure
+                      your eyesight meets the necessary standards for safe
+                      driving.
+                    </p>
+                    <div className="flex justify-end">
+                      <Button className="bg-[#1E40AF] text-gray-50 shadow-md hover:bg-[#1E40AF]/90 focus-visible:ring-[#1E40AF] dark:bg-[#1E40AF] dark:text-gray-50 dark:hover:bg-[#1E40AF]/90 dark:focus-visible:ring-[#1E40AF]">
+                        Next
+                      </Button>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+              <Collapsible>
+                <CollapsibleTrigger className="flex items-center justify-between rounded-lg bg-gray-100 p-4 font-medium transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
+                  <div>
+                    <h3 className="text-lg font-bold">Fee Payment</h3>
+                    <p className="text-sm text-gray-400 dark:text-gray-300">
+                      Pay the required renewal fees.
+                    </p>
+                  </div>
+                  <ChevronDownIcon className="h-5 w-5 transition-transform [&[data-state=open]]:rotate-180" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-4 pt-4">
+                  <div className="space-y-4">
+                    <p>
+                      Pay the necessary fees for renewing your driver's license.
+                      The amount varies depending on your state and the type of
+                      license.
+                    </p>
+                    <div className="flex justify-end">
+                      <Button className="bg-[#1E40AF] text-gray-50 shadow-md hover:bg-[#1E40AF]/90 focus-visible:ring-[#1E40AF] dark:bg-[#1E40AF] dark:text-gray-50 dark:hover:bg-[#1E40AF]/90 dark:focus-visible:ring-[#1E40AF]">
+                        Next
+                      </Button>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+              <Collapsible>
+                <CollapsibleTrigger className="flex items-center justify-between rounded-lg bg-gray-100 p-4 font-medium transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
+                  <div>
+                    <h3 className="text-lg font-bold">
+                      Receive Renewed License
+                    </h3>
+                    <p className="text-sm text-gray-400 dark:text-gray-300">
+                      Get your renewed license once all steps are completed.
+                    </p>
+                  </div>
+                  <ChevronDownIcon className="h-5 w-5 transition-transform [&[data-state=open]]:rotate-180" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-4 pt-4">
+                  <div className="space-y-4">
+                    <p>
+                      After completing all the necessary steps, you will receive
+                      your renewed driver's license either by mail or at the DMV
+                      office.
+                    </p>
+                    <div className="flex justify-end">
+                      <Button className="bg-[#1E40AF] text-gray-50 shadow-md hover:bg-[#1E40AF]/90 focus-visible:ring-[#1E40AF] dark:bg-[#1E40AF] dark:text-gray-50 dark:hover:bg-[#1E40AF]/90 dark:focus-visible:ring-[#1E40AF]">
+                        Finish
+                      </Button>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
             </div>
           </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#0B1D3B]">
-          <div className="container space-y-12 px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Frequently Asked Questions
-                </h2>
-                <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Get answers to the most common questions about renewing your
-                  driving license.
-                </p>
-              </div>
+        </div>
+      </section>
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <div className="container px-4 md:px-6">
+          <div className="space-y-8">
+            <div className="space-y-4 text-center">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Frequently Asked Questions
+              </h2>
+              <p className="max-w-[700px] mx-auto text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-300">
+                Get answers to common questions about the license renewal
+                process.
+              </p>
             </div>
-            <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-2">
-              <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
-                <h3 className="text-lg font-bold">
-                  How long does the renewal process take?
-                </h3>
-                <p className="text-sm text-gray-300 dark:text-gray-400">
-                  The renewal process typically takes 2-4 weeks from the time
-                  your application is submitted. However, processing times may
-                  vary depending on the volume of applications.
-                </p>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
-                <h3 className="text-lg font-bold">
-                  What documents do I need to renew?
-                </h3>
-                <p className="text-sm text-gray-300 dark:text-gray-400">
-                  You'll need to provide your current driver's license, proof of
-                  identity (such as a birth certificate or passport), and any
-                  applicable fees.
-                </p>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
-                <h3 className="text-lg font-bold">Can I renew online?</h3>
-                <p className="text-sm text-gray-300 dark:text-gray-400">
-                  Yes, you can complete the entire renewal process online
-                  through our secure platform. This is the fastest and most
-                  convenient way to renew your license.
-                </p>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-6 shadow-lg">
-                <h3 className="text-lg font-bold">
-                  How much does it cost to renew?
-                </h3>
-                <p className="text-sm text-gray-300 dark:text-gray-400">
-                  The cost to renew your driving license varies by state, but
-                  typically ranges from $20 to $50. You can check the exact fee
-                  for your state on our website.
-                </p>
-              </div>
+            <div className="grid gap-4 md:grid-cols-1">
+              <Collapsible>
+                <CollapsibleTrigger className="flex items-center justify-between rounded-lg bg-white shadow-md p-4 font-medium transition-colors hover:bg-gray-100 dark:bg-gray-950 dark:hover:bg-gray-800">
+                  <div>
+                    <h3 className="text-lg font-bold">
+                      What documents do I need to bring?
+                    </h3>
+                    <p className="text-sm text-gray-400 dark:text-gray-300">
+                      Make sure you have the required identification and
+                      residency documents.
+                    </p>
+                  </div>
+                  <ChevronDownIcon className="h-5 w-5 transition-transform [&[data-state=open]]:rotate-180" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-4 pt-4">
+                  <div className="space-y-4">
+                    <p>
+                      You'll need to bring the following documents to the DMV:
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>
+                        Proof of identity (current driver's license, passport,
+                        etc.)
+                      </li>
+                      <li>Proof of social security number</li>
+                      <li>
+                        Proof of residency (utility bill, bank statement, etc.)
+                      </li>
+                    </ul>
+                    <p>Make sure all documents are valid and up-to-date.</p>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+              <Collapsible>
+                <CollapsibleTrigger className="flex items-center justify-between rounded-lg bg-white shadow-md p-4 font-medium transition-colors hover:bg-gray-100 dark:bg-gray-950 dark:hover:bg-gray-800">
+                  <div>
+                    <h3 className="text-lg font-bold">
+                      How much does it cost to renew a driver's license?
+                    </h3>
+                    <p className="text-sm text-gray-400 dark:text-gray-300">
+                      Understand the fees associated with the driver's license
+                      renewal process.
+                    </p>
+                  </div>
+                  <ChevronDownIcon className="h-5 w-5 transition-transform [&[data-state=open]]:rotate-180" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-4 pt-4">
+                  <div className="space-y-4">
+                    <p>
+                      The fees for renewing a driver's license vary by state,
+                      but typically include:
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Renewal application fee: $20-$50</li>
+                      <li>Vision test fee: $5-$15</li>
+                      <li>License issuance fee: $20-$50</li>
+                    </ul>
+                    <p>Check with your local DMV for exact amounts.</p>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
     </div>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
   );
 }

@@ -37,11 +37,47 @@ CREATE TABLE IF NOT EXISTS `driving_license_trainee` (
   `trainee_id` INT PRIMARY KEY AUTO_INCREMENT,
   `address` VARCHAR(255) NOT NULL,
   `dob` VARCHAR(255) NOT NULL,
-  `vehicleType` VARCHAR(255) NOT NULL,
+  `vehicle_type` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `user_id` INT,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
+
+-- license_renewals table
+CREATE TABLE IF NOT EXISTS `license_renewals` (
+  `renewal_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `user_id` INT,
+  `email` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `vehicle_type` VARCHAR(255) NOT NULL,
+  `expiry_date` VARCHAR(255) NOT NULL,
+  `license_number` VARCHAR(255) NOT NULL,
+  `dob` VARCHAR(255) NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+
+--admin approve reject table for trainee
+CREATE TABLE IF NOT EXISTS `trainee_approval_status` (
+  `approval_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `trainee_id` INT,
+  `status` ENUM('approved', 'rejected') NOT NULL,
+  `admin_comment` TEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`trainee_id`) REFERENCES `driving_license_trainee`(`trainee_id`)
+  
+) ENGINE=InnoDB;
+
+--admin approve reject table for renewals
+CREATE TABLE IF NOT EXISTS `renewal_approval_status` (
+  `approval_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `renewal_id` INT,
+  `status` ENUM('approved', 'rejected') NOT NULL,
+  `admin_comment` TEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`renewal_id`) REFERENCES `license_renewals`(`renewal_id`)
+) ENGINE=InnoDB;
+
 
 
 -- Add orders

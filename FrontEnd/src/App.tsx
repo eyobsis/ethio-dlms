@@ -14,14 +14,16 @@ import Login from "./components/Pages/Login";
 import SelectOptions from "./components/Pages/SelectOptions";
 import Dashboard from "./components/Admin/Dashboard";
 import UserDashboard from "./components/UserDashboard/UserDashboard";
-import FileUpload from "./components/FileUpload/FileUpload";
 import PageNotFound from "./components/Pages/PageNotFound";
 
-import RenewLicense from "./components/Pages/RenewLicense";
+import RenewLicense from "./components/Pages/RegisterForRenewal";
 import RegisterForNewLicense from "./components/Pages/RegisterForNewLicense";
+import LicenseRenwalSteps from "./components/Pages/LicenseRenewalSteps";
 import RegisterVehicle from "./components/Pages/RegisterVehicle";
 import BookLessons from "./components/Pages/BookLessons";
 import FileList from "./components/Admin/FileList";
+import ApproveReject from "./components/Admin/ApproveReject";
+import ApplicationStatus from "./components/UserDashboard/ApplicationStatus";
 
 function App() {
   return (
@@ -40,16 +42,19 @@ function App() {
         <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/user/dashboard" element={<UserDashboard />} />
 
-        <Route path="/renew-license" element={<RenewLicense />} />
+        <Route path="/register-for-renewal" element={<RenewLicense />} />
         <Route
           path="/register-for-new-license"
           element={<RegisterForNewLicense />}
         />
         <Route path="/register-vehicle" element={<RegisterVehicle />} />
         <Route path="/book-lessons" element={<BookLessons />} />
-        <Route path="/file-upload" element={<FileUpload />} />
+
         <Route path="*" element={<PageNotFound />} />
         <Route path="/admin/file-list" element={<FileList />} />
+        <Route path="/license-renewal-steps" element={<LicenseRenwalSteps />} />
+        <Route path="/admin/applications" element={<ApproveReject />} />
+        <Route path="/application-status" element={<ApplicationStatus />} />
       </Routes>
       <Footer />
     </>

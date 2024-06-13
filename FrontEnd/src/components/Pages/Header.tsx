@@ -20,6 +20,13 @@ const Header = () => {
               <Link to="/services">Services</Link>
             </li>
             <li>
+              <Link to="/license-renewal-steps">RenewLicense</Link>
+            </li>
+            <li>
+              <Link to="/register-for-new-license">RegisterForNewLicense</Link>
+            </li>
+
+            <li>
               <Link to="/contact">Contact</Link>
             </li>
 
@@ -28,7 +35,10 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div id="google_translate_element" style={{ paddingLeft: 35, paddingRight: 15 }}>
+        <div
+          id="google_translate_element"
+          style={{ paddingLeft: 35, paddingRight: 15 }}
+        >
           Language
         </div>
       </div>

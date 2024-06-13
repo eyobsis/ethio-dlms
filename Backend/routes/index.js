@@ -6,10 +6,14 @@ const router = express.Router();
 // Import the install router
 const installRouter = require("./install.routes");
 const imageRoutes = require("./image.routes");
+const adminapproveRoutes = require("./adminapprove.route");
+const checkstatusRoutes = require("./checkstatus.route");
+
 // import get all users route
 
 const getAllUsersRoute = require("./users.route");
 // Import the login routes
+
 const loginRoutes = require("./login.routes");
 const orderRoutes = require("./order.routes");
 const signupRoutes = require("./signup.routes");
@@ -17,6 +21,8 @@ const stripeRoutes = require("./stripe.routes");
 const fileRoutes = require("./file.routes");
 const licenseRoutes = require("./license.route");
 // Add the stripe routes to the main router
+router.use(checkstatusRoutes);
+router.use(adminapproveRoutes);
 router.use(licenseRoutes);
 router.use(fileRoutes);
 router.use(imageRoutes);
