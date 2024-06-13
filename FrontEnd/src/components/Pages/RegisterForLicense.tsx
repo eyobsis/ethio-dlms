@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
@@ -9,11 +10,9 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
-
-import FileUpload from "../FileUpload/FileUpload";
-
+import axios from "axios";
 import { toast } from "react-toastify";
+import FileUpload from "../FileUpload/FileUpload";
 
 export default function RegisterForLicense() {
   const [formData, setFormData] = useState({
@@ -34,17 +33,18 @@ export default function RegisterForLicense() {
   const handleUserSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      // Here you can submit user data using formData
       console.log("User data submitted:", formData);
-      // Example:
-      await axios.post("http://localhost:8000/api/newRegistrant", formData);
+      const responce = await axios.post(
+        "http://localhost:8000/api/newTrainee",
+        formData
+      );
       toast.success("User data submitted successfully");
+      console.log("Response:", responce.data);
     } catch (error) {
       console.error("Error submitting user data:", error);
       toast.error("Error submitting user data");
     }
   };
-  console.log("User data:", formData);
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -61,8 +61,7 @@ export default function RegisterForLicense() {
           <Input
             id="email"
             type="email"
-            placeholder="
-            Enter your email address"
+            placeholder="Enter your email address"
             required
             onChange={handleInputChange}
           />
@@ -98,7 +97,7 @@ export default function RegisterForLicense() {
             </div>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="vehicle-type">Vehicle Type</Label>
+            <Label htmlFor="vehicleType">Vehicle Type</Label>
             <Select
               onValueChange={(value) =>
                 setFormData({ ...formData, vehicleType: value })
@@ -145,7 +144,7 @@ export default function RegisterForLicense() {
   );
 }
 
-function CalendarDaysIcon(props) {
+function CalendarDaysIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

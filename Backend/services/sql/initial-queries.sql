@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `driving_license_trainee` (
   `vehicleType` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `user_id` INT,
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
 
